@@ -31,7 +31,7 @@ export function Chart({ data }) {
   const yScale = d3
     .scaleBand()
     .domain(numericData.map((d) => d.country))
-    .range([marginTop, heightBound])
+    .range([marginTop, height - marginBottom])
     .padding(0.3);
 
   // Generate axis ticks 
@@ -57,7 +57,7 @@ export function Chart({ data }) {
   return (
     <div>
       <p>Template for the Coding Exercise</p>
-      <svg width={width} height={height}>
+      <svg style={{border:"1px solid black"}} width={width} height={height}>
         {/* Bars */}
         {numericData.map((d) => (
           <rect
@@ -72,6 +72,18 @@ export function Chart({ data }) {
             strokeWidth={1}
           />
         ))}
+
+        {/* Inner Chart area for understanding margins*/}
+        <rect
+          x={marginLeft}
+          y={marginTop}
+          width={widthBound}
+          height={heightBound}
+          stroke="red"
+          fill="none"
+          strokeWidth={2}
+        />
+
 
         {/* X-Axis */}
         <line
