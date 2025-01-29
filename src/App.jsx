@@ -1,7 +1,7 @@
 import './App.css'
 import * as d3 from "d3";
 import { useEffect, useState } from 'react';
-import { Chart } from './Chart';
+import { Chart } from './Barplot';
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
 
   return (
     <div>
+      
      {data?<Chart data={data} />:<div> Loading data... </div>}
     </div>
   );
